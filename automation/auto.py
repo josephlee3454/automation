@@ -29,9 +29,21 @@ def duplicate_phone():
   print(new_list)
   print(len(new_list))
   return new_list 
+
+def store_info(info, file):
+  info.sort()
+  sorted_files = open_file(file).split('\n')
+  with open(file, "a+") as f:
+    for data in info:
+      if data in sorted_files:
+        return False
+      else:
+        f.write(data + '\n')
 # list(dict.fromkeys(phone_numbers))
 if __name__ == "__main__":
   duplicate_email()
+  store_info(new_e_list, email.txt)
+  
   # duplicate_phone()
   print(len(em))
   
